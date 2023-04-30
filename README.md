@@ -8,9 +8,22 @@ This is a plugin for the GNU Image Manipulation Program, [GIMP](https://www.gimp
 
 You provide an image in one layer, a mask with transparency in another layer. Then you execute the plugin and both layers get send to OpenAI's API. The API creates content for the masked pixels and the result is fed back to GIMP as a third layer.
 
-| Layer 1: Input Image | Layer 2: Mask with alpha channel (transparency) | Layer 3: Generated output    |
-| --- | --- | --- |
-| ![Source image](assets/docs-image.png) | ![Mask](assets/docs-mask.png) | ![Generated output](assets/docs-generated.png) |
+<table>
+  <thead>
+    <tr>
+      <th>Layer 1: Input Image</th>
+      <th>Layer 2: Mask with alpha channel (transparency)</th>
+      <th>Layer 3: Generated output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="assets/docs-image.png" width="512"></td>
+      <td><img src="assets/docs-mask.png" width="512"></td>
+      <td><img src="assets/docs-generated.png" width="512"></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Attribution
 This is the [source image](https://unsplash.com/photos/WGhdiuvN4lE) by [Nhan Hoang](https://unsplash.com/@httnhan) for the example above.
@@ -29,7 +42,7 @@ This is the [source image](https://unsplash.com/photos/WGhdiuvN4lE) by [Nhan Hoa
 * Click generate (note that the plugin uses a paid endpoint, so you will be charged by OpenAI for usage)
 
 ## Limitations
-* Currently the plugin only works with a resolution of `500 px * 500 px`
+* Currently the plugin only works with a resolution of `512 px * 512 px`
 * The plugin only works if you provide the source image in layer 1 and the mask with transparency in layer 2
 * It takes some seconds for OpenAI to generate the output, so GIMP might assume the plugin crashed, just click "wait"
 
