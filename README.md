@@ -11,16 +11,16 @@ You provide an image in one layer, a mask with transparency in another layer. Th
 <table>
   <thead>
     <tr>
-      <th>Layer 1: Input Image</th>
-      <th>Layer 2: Mask with alpha channel (transparency)</th>
-      <th>Layer 3: Generated output</th>
+      <th>Layer 1:<br>Input Image</th>
+      <th>Layer 2:<br>Mask with transparency</th>
+      <th>Layer 3:<br>Generated output</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><img src="assets/docs-image.png" width="512"></td>
-      <td><img src="assets/docs-mask.png" width="512"></td>
-      <td><img src="assets/docs-generated.png" width="512"></td>
+      <td><img src="assets/docs-image.png" width="150"></td>
+      <td><img src="assets/docs-mask.png" width="150"></td>
+      <td><img src="assets/docs-generated.png" width="150"></td>
     </tr>
   </tbody>
 </table>
