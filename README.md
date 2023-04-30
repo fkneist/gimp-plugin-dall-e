@@ -9,8 +9,8 @@ This is a plugin for the GNU Image Manipulation Program, [GIMP](https://www.gimp
 You provide an image in one layer, a mask with transparency in another layer. Then you execute the plugin and both layers get send to OpenAI's API. The API creates content for the masked pixels and the result is fed back to GIMP as a third layer.
 
 | Layer 1: Input Image | Layer 2: Mask with alpha channel (transparency) | Layer 3: Generated output    |
-| ----- | ------- | --------- |
-| ![Source image](assets/docs-image.png) | ![Mask](assets/docs-mask.png)    | ![Generated output](assets/docs-generated.png) |
+| --- | --- | --- |
+| ![Source image](assets/docs-image.png) | ![Mask](assets/docs-mask.png) | ![Generated output](assets/docs-generated.png) |
 
 ### Attribution
 This is the [source image](https://unsplash.com/photos/WGhdiuvN4lE) by [Nhan Hoang](https://unsplash.com/@httnhan) for the example above.
