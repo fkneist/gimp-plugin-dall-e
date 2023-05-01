@@ -46,7 +46,7 @@ def modify_config(key):
     else:
         print("Config file already exists:", CONFIG_PATH)
 
-def create_request(image_data, mask_data, prompt):
+def create_request(image_data, prompt):
 
     open_api_key = get_openai_api_key()
 
@@ -75,11 +75,6 @@ def create_request(image_data, mask_data, prompt):
     part_list.append('Content-Type: image/png')
     part_list.append('')
     part_list.append(image_data)
-    part_list.append(part_boundary)
-    part_list.append('Content-Disposition: file; name="mask"; filename="mask.png"')
-    part_list.append('Content-Type: image/png')
-    part_list.append('')
-    part_list.append(mask_data)
     part_list.append('--' + boundary + '--')
     part_list.append('')
 
@@ -100,44 +95,22 @@ def open_image_in_new_layer(image, image_filename):
     gimp.displays_flush()
 
 def print_layers(image, prompt):
-    # Get the layers of the current image
-    layers = image.layers
-
     # Input image
     temp_image = tempfile.NamedTemporaryFile(delete=False, suffix='-image.png')
     temp_image_path = temp_image.name
-
-    # Input mask
-    temp_mask = tempfile.NamedTemporaryFile(delete=False, suffix='-mask.png')
-    temp_mask_path = temp_mask.name
 
     # Output image
     temp_generated = tempfile.NamedTemporaryFile(delete=False, suffix='-generated.png')
     temp_generated_path = temp_generated.name
 
-    # Print the name of each layer
-    for index, layer in enumerate(layers):
-        # Save the image to a file
 
-        filename = ''
-
-        if index == 0:
-            filename = temp_mask_path
-        if index == 1:
-            filename = temp_image_path
-
-        pdb.gimp_file_save(image, layer, filename, filename)
-
+    pdb.gimp_file_save(image, image.layers[0], temp_image_path, temp_image_path)
     temp_image.close()
-    temp_mask.close()
 
     with open(temp_image_path, "rb") as f:
         image_data = f.read()
 
-    with open(temp_mask_path, "rb") as f:
-        mask_data = f.read()
-
-    req = create_request(image_data, mask_data, prompt)
+    req = create_request(image_data, prompt)
 
     try:
         ssl_context = ssl.create_default_context()
@@ -165,7 +138,6 @@ def print_layers(image, prompt):
     open_image_in_new_layer(image, temp_generated_path)
 
     os.unlink(temp_image_path)
-    os.unlink(temp_mask_path)
     os.unlink(temp_generated_path)
 
 def on_button_generate_clicked(widget, image, text_entry):

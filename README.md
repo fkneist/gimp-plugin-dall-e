@@ -6,21 +6,19 @@ This is a plugin for the GNU Image Manipulation Program, [GIMP](https://www.gimp
 
 ## Usage
 
-You provide an image in one layer, a mask with transparency in another layer. Then you execute the plugin and both layers get send to OpenAI's API. The API creates content for the masked pixels and the result is fed back to GIMP as a third layer.
+You provide an image in one layer. A region of the layer needs to be fully transparent. Then you execute the plugin and the image gets send to OpenAI's API. The API creates content for the masked pixels and the result is fed back to GIMP as a second layer.
 
 <table>
   <thead>
     <tr>
-      <th>Layer 1:<br>Input Image</th>
-      <th>Layer 2:<br>Mask with transparency</th>
-      <th>Layer 3:<br>Generated output</th>
+      <th>Layer 1:<br>Input Image with fully transparent region</th>
+      <th>Layer 2:<br>Generated output</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><img src="assets/docs-image.png" width="150"></td>
-      <td><img src="assets/docs-mask.png" width="150"></td>
-      <td><img src="assets/docs-generated.png" width="150"></td>
+      <td><img src="assets/docs-image.png" width="250"></td>
+      <td><img src="assets/docs-generated.png" width="250"></td>
     </tr>
   </tbody>
 </table>
@@ -42,9 +40,9 @@ This is the [source image](https://unsplash.com/photos/WGhdiuvN4lE) by [Nhan Hoa
 * Click generate (note that the plugin uses a paid endpoint, so you will be charged by OpenAI for usage)
 
 ## Limitations
-* Currently the plugin only works with a resolution of `512 px * 512 px`
-* The plugin only works if you provide the source image in layer 1 and the mask with transparency in layer 2
-* It takes some seconds for OpenAI to generate the output, so GIMP might assume the plugin crashed, just click "wait"
+* Currently the plugin only works with a resolution of `512 px * 512 px`.
+* The plugin only works if you provide a source image in layer 1 with a fully transparent region. This region will be filled with generated content.
+* It takes some seconds for OpenAI to generate the output, so GIMP might assume the plugin crashed, just click "wait".
 
 ## Related
 * https://github.com/danielgatis/rembg
