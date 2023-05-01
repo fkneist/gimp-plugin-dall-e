@@ -20,11 +20,16 @@ You provide an image in one layer. A region of the layer needs to be fully trans
       <td><img src="assets/docs-image.png" width="250"></td>
       <td><img src="assets/docs-generated.png" width="250"></td>
     </tr>
+        <tr>
+      <td><img src="assets/docs-image-2.png" width="250"></td>
+      <td><img src="assets/docs-generated-2.png" width="250"></td>
+    </tr>
   </tbody>
 </table>
 
 ### Attribution
-This is the [source image](https://unsplash.com/photos/WGhdiuvN4lE) by [Nhan Hoang](https://unsplash.com/@httnhan) for the example above.
+* This is the [source image](https://unsplash.com/photos/WGhdiuvN4lE) by [Nhan Hoang](https://unsplash.com/@httnhan) for the example in the first row.
+* This is the [source image](https://unsplash.com/photos/_q2sW-4RSiY) by [Pew Nguyen](https://unsplash.com/@nguyentrungnguyen) (cropped) for the example in the second row.
 
 ## Installation
 * Either take one of the folders found in GIMP: `"Edit" > "Preferences"` then `"Folders" > "Plug-Ins"` or add a folder there
